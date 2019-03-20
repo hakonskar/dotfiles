@@ -1,9 +1,6 @@
 " Vim syntax file
-" Language:	    DnV WAJAC input files (*.inp)
-" Maintainer:	Håkon Skår - haakon.skaar@akersolutions.com
-" Company:      Aker Kværner Offshore Partner AS Bergen
-" Last Change:	09.11.2006
-
+" Language:     DnV WAJAC input files (*.inp)
+" Maintainer:   Håkon Skår - haakon.skaar@gmail.com
 
 " SESAM is case insensitive
 syn case ignore

@@ -1,11 +1,8 @@
 " Vim syntax file
-" Language:		GENSOD input files (*.fem)
-" 			Simple syntax file to highlight comments and keywords
-" Maintainer:		Håkon Skår - haakon.skaar@akersolutions.com
-" Company:     		Aker Offshore Partner AS Bergen
-" Last Change:		15 October 2008
-" (G)VIM version:	7.2
+" Language:     GENSOD input files (*.fem)
+" Maintainer:   Håkon Skår - haakon.skaar@gmail.com
 
+" Simple syntax file to highlight comments and keywords
 
 " GENSOD commands are case-insensitive
 syn case ignore

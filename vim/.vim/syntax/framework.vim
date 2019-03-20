@@ -1,8 +1,6 @@
 " Vim syntax file
-" Language:	    DnV SESAM input files (*.jnl), FRAMEWORK
-" Maintainer:	Håkon Skår - haakon.skaar@akersolutions.com
-" Company:      Aker Kværner Offshore Partner AS Bergen
-" Last Change:	08.01.2007
+" Language:     DnV SESAM input files (*.jnl), FRAMEWORK
+" Maintainer:   Håkon Skår - haakon.skaar@gmail.com
 
 
 " SESAM is case insensitive

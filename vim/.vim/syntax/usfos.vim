@@ -1,11 +1,8 @@
 " Vim syntax file
-" Language:		USFOS input files (*.fem)
-" 			Simple syntax file to highlight comments and keywords
-" Maintainer:		Håkon Skår - haakon.skaar@akersolutions.com
-" Company:     		Aker Kværner Offshore Partner AS Bergen
-" Last Change:		20 mars 2007
-" (G)VIM version:	7.0
+" Language:     USFOS input files (*.fem)
+" Maintainer:   Håkon Skår - haakon.skaar@gmail.com
 
+" Simple syntax file to highlight comments and keywords
 
 " USFOS commands are case-insensitive
 syn case ignore

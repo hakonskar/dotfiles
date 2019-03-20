@@ -1,11 +1,8 @@
 " Vim syntax file
-" Language:		Mimosa macro input files (*.mac)
-" 			Simple syntax file to highlight comments and keywords
-" Maintainer:		Håkon Skår - haksk@statoil.com
-" Company:     		StatoilMarine Operations
-" Last Change:		20 March 2009
-" (G)VIM version:	7.2
+" Language:     Mimosa macro input files (*.mac)
+" Maintainer:   Håkon Skår - haakon.skaar@gmail.com
 
+" Simple syntax file to highlight comments and keywords
 
 " Mimosa_macro commands are case-insensitive
 syn case ignore

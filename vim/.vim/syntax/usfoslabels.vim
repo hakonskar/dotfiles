@@ -1,9 +1,6 @@
 " Vim syntax file
-" Language:	USFOS labels file (*.usl)
-" Maintainer:	Håkon Skår - haakon.skaar@akersolutions.com
-" Company:      Aker Offshore Partner AS Bergen
-" Last Change:	29 April 2008
-
+" Language:     USFOS labels file (*.usl)
+" Maintainer:   Håkon Skår - haakon.skaar@gmail.com
 
 " USFOS is case insensitive
 syn case ignore
