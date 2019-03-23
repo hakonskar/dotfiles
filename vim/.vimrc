@@ -14,7 +14,7 @@ set autoread                    "Automatically update files that have been chang
 set hid                         "Abandoned buffers become hidden (not unloaded)
 set history=400                 "How much history Vim will remember
 set undolevels=200              "Undolevels to remember
-set shiftwidth=4                "Number of spaces used for each step of (auto)indent
+set shiftwidth=2                "Number of spaces used for each step of (auto)indent
 set smartindent                 "Do smart autoindenting when starting a new line
 set autoindent                  "Copy indent from current line when starting a new line
 set expandtab                   "In Insert mode: Use the appropriate number of spaces to insert a <Tab>
