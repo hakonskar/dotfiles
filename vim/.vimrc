@@ -61,16 +61,16 @@ au VimResized * wincmd =
 
 
 """ Statusline {{{1
-"set statusline=
-"set statusline+=%<\                   " cut at start
-"set statusline+=%2*[%n%H%M%R%W]%*\    " flags and buf no
-"set statusline+=%-40f\                " path
-"set statusline+=%=                    " right align
-"set statusline+=%{SyntaxItem()}\      " syntax highlight group
-"set statusline+=%1*%y%*%*\            " file format
-"set statusline+=%{&ff}\               " filetype
-"set statusline+=%10((%l,%c)%)\        " line and column
-"set statusline+=%P                    " percentage of file
+set statusline=
+set statusline+=%<\                   " cut at start
+set statusline+=%2*[%n%H%M%R%W]%*\    " flags and buf no
+set statusline+=%-40f\                " path
+set statusline+=%=                    " right align
+set statusline+=%{SyntaxItem()}\      " syntax highlight group
+set statusline+=%1*%y%*%*\            " file format
+set statusline+=%{&ff}\               " filetype
+set statusline+=%10((%l,%c)%)\        " line and column
+set statusline+=%P                    " percentage of file
 
 
 """ Abbreviations. {{{1
@@ -248,9 +248,9 @@ func! DeleteTillSlash()
 endfunc
 
 " Return syntax group
-"function! SyntaxItem()
-"    return synIDattr(synID(line("."),col("."),1),"name")
-"endfunction
+function! SyntaxItem()
+    return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
 
 " Toggle relative line number mode
 function! NumberToggle()
@@ -273,12 +273,12 @@ endif
 
 """ Options for plugins {{{1
 " Vim-plug
-if has("win32")
-    silent! call plug#begin('~\vimfiles\plugged')
-elseif has("mac") || has("macunix") || has("unix")
-    call plug#begin('~/.vim/plugged')
-endif
-
-Plug 'vim-airline/vim-airline'
-
-call plug#end()
+"if has("win32")
+"    silent! call plug#begin('~\vimfiles\plugged')
+"elseif has("mac") || has("macunix") || has("unix")
+"    call plug#begin('~/.vim/plugged')
+"endif
+"
+"Plug 'vim-airline/vim-airline'
+"
+"call plug#end()
