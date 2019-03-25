@@ -1,11 +1,9 @@
+#
 # ~/.bashrc
-# Håkon - 16. Aug 2012
+#
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
