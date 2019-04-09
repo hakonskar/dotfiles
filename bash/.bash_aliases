@@ -31,6 +31,3 @@ alias pacman='pacman --color auto'
 
 #Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-
-#add new fonts
-alias fc='sudo fc-cache -fv'

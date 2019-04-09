@@ -177,7 +177,7 @@ if has("gui_running")
     colorscheme peaksea
 else
 "    set background=dark
-    colorscheme default
+    colorscheme murphy
 endif
 
 
