@@ -175,10 +175,11 @@ if has("gui_running")
     "let g:molokai_original = 1
     "colorscheme molokai
     colorscheme peaksea
-else
-"    set background=dark
-    colorscheme murphy
 endif
+"else
+"    set background=dark
+"    colorscheme default
+"endif
 
 
 " Cursorline

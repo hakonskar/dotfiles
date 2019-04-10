@@ -2,6 +2,11 @@
 # ~/.bashrc
 #
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -18,7 +23,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # Prompt
-PS1="[\[\e[31;36m\]\u \W\[\e[0m\]] \[\e]2;\w\a\]"
+PS1="[\[\e[1;36m\]\u \W\[\e[0m\]] \[\e]2;\w\a\]"
 # PS1="[\[\e[31;32m\]\u \W\[\e[0m\]] "
 
 # Source the aliases
@@ -33,3 +38,5 @@ export EDITOR=vim
 export FIGNORE=DS_Store:localized
 
 # Path
+PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH
