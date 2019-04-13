@@ -165,7 +165,7 @@ nmap <leader>y :!cal -y<CR>
 if has("win32")
     set gfn=Hack:h11,Consolas:h10:cANSI
 elseif has("mac") || has("macunix") || has("unix")
-    set gfn=Hack\ 12
+    set gfn=Monospace\ 12
 endif
 
 

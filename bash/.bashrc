@@ -44,3 +44,6 @@ export PATH
 # ls colors
 LS_COLORS="$LS_COLORS:di=01;32";
 export LS_COLORS
+
+# System info when opening new terminal
+#neofetch
