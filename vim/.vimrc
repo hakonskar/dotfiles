@@ -172,9 +172,8 @@ endif
 " Colorscheme
 if has("gui_running")
     set background=dark
-    "let g:molokai_original = 1
-    "colorscheme molokai
-    colorscheme peaksea
+    colorscheme solarized8_high
+    "colorscheme peaksea
 endif
 "else
 "    set background=dark
