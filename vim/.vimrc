@@ -163,22 +163,22 @@ nmap <leader>y :!cal -y<CR>
 
 " Font
 if has("win32")
-    set gfn=Hack:h11,Consolas:h10:cANSI
+  set gfn=Hack:h11,Consolas:h10:cANSI
 elseif has("mac") || has("macunix") || has("unix")
-    set gfn=Monospace\ 12
+  set gfn=Monospace\ 12
 endif
 
 
 " Colorscheme
 if has("gui_running")
+  if system('date +%H') >= 20
     set background=dark
     colorscheme solarized8_high
     "colorscheme peaksea
+  else
+    colorscheme desert
+  endif
 endif
-"else
-"    set background=dark
-"    colorscheme default
-"endif
 
 
 " Cursorline
@@ -190,26 +190,26 @@ endif
 
 """ Window-size and GUI options {{{1
 if has("gui_running")
-    set guioptions-=T
-    set guioptions-=m
-    try
-        set switchbuf=usetab
-        set stal=1
-    catch
-    endtry
+  set guioptions-=T
+  set guioptions-=m
+  try
+    set switchbuf=usetab
+    set stal=1
+  catch
+  endtry
 
-    if has("gui_win32")
-        set lines=65
-        set columns=140
-        set visualbell t_vb=
-        au GuiEnter * set visualbell t_vb=
-    elseif has("gui_macvim")
-        set lines=65
-        set columns=130
-    else
-        set lines=50
-        set columns=125
-    endif
+  if has("gui_win32")
+    set lines=65
+    set columns=140
+    set visualbell t_vb=
+    au GuiEnter * set visualbell t_vb=
+  elseif has("gui_macvim")
+    set lines=65
+    set columns=130
+  else
+    set lines=50
+    set columns=125
+  endif
 
 endif
 
@@ -228,37 +228,37 @@ endif
 """ Helper functions {{{1
 " For the <leader>q mapping
 func! DeleteTillSlash()
-    let g:cmd = getcmdline()
+  let g:cmd = getcmdline()
 
+  if has("win16") || has("win32")
+    let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
+  else
+    let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
+  endif
+
+  if g:cmd == g:cmd_edited
     if has("win16") || has("win32")
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
+      let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
     else
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
+      let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
     endif
+  endif
 
-    if g:cmd == g:cmd_edited
-        if has("win16") || has("win32")
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
-        else
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-        endif
-    endif
-
-    return g:cmd_edited
+  return g:cmd_edited
 endfunc
 
 " Return syntax group
 function! SyntaxItem()
-    return synIDattr(synID(line("."),col("."),1),"name")
+  return synIDattr(synID(line("."),col("."),1),"name")
 endfunction
 
 " Toggle relative line number mode
 function! NumberToggle()
-    if (&relativenumber == 1)
-        set norelativenumber
-    else
-        set relativenumber
-    endif
+  if (&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
 endfunc
 
 " Convenient command to see the difference between the current buffer and the
@@ -266,7 +266,7 @@ endfunc
 " Only define it when not defined already.
 " Revert with: ":delcommand DiffOrig".
 if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
         \ | wincmd p | diffthis
 endif
 
