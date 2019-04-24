@@ -45,7 +45,7 @@ set nowritebackup               "No backup
 set nobackup                    "No backup
 set virtualedit=all             "Allow virtual editing in all modes.
 set backspace=indent,eol,start  "Make backspace work properly
-set laststatus=2                "The last window always has a statusline
+set laststatus=2                "Status line also when only one window
 set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<
 
 " Ignore these
@@ -157,7 +157,9 @@ au BufReadPost * map K :exe ":help ".expand("<cword>")<CR>
 nnoremap H :set cursorline!<CR>
 
 " Show terminal calendar
-nmap <leader>y :!cal -y<CR>
+if has("mac") || has("macunix") || has("unix")
+  nmap <leader>y :!cal -y<CR>
+endif
 
 """ Colorscheme, Fonts & Cursorline {{{1
 
@@ -171,10 +173,12 @@ endif
 
 " Colorscheme
 if has("gui_running")
-  if system('date +%H') >= 20
+  if system('date +%H') >= 20 || system('date +%H') <= 7
     set background=dark
     colorscheme solarized8_high
     "colorscheme peaksea
+    set cursorline
+    hi cursorline gui=NONE guibg=#073642
   else
     colorscheme desert
   endif
@@ -182,10 +186,10 @@ endif
 
 
 " Cursorline
-if has("gui_running")
-  set cursorline
-  hi cursorline gui=NONE guibg=#333333
-endif
+"if has("gui_running")
+"  set cursorline
+"  hi cursorline gui=NONE guibg=#333333
+"endif
 
 
 """ Window-size and GUI options {{{1

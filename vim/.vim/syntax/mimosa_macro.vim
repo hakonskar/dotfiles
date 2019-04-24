@@ -4,33 +4,33 @@
 
 " Simple syntax file to highlight comments and keywords
 
-" Mimosa_macro commands are case-insensitive
+" MimosaMacro commands are case-insensitive
 syn case ignore
 
 " The following main keywords are taken from the Mimosa user manuals
 "
-syn keyword mimosa_macroStatement BATCH
-syn keyword mimosa_macroStatement CLOSE
-syn keyword mimosa_macroStatement CREATE
-syn keyword mimosa_macroStatement DISPLAY
-syn keyword mimosa_macroStatement DO
-syn keyword mimosa_macroStatement FILE
-syn keyword mimosa_macroStatement HELP
-syn keyword mimosa_macroStatement LIST
-syn keyword mimosa_macroStatement OFF
-syn keyword mimosa_macroStatement ON
-syn keyword mimosa_macroStatement RANGE
-syn keyword mimosa_macroStatement RESULT
-syn keyword mimosa_macroStatement SPAWN
-syn keyword mimosa_macroStatement STATUS
-syn keyword mimosa_macroStatement WAIT
+syn keyword mimosaMacroStatement BATCH
+syn keyword mimosaMacroStatement CLOSE
+syn keyword mimosaMacroStatement CREATE
+syn keyword mimosaMacroStatement DISPLAY
+syn keyword mimosaMacroStatement DO
+syn keyword mimosaMacroStatement FILE
+syn keyword mimosaMacroStatement HELP
+syn keyword mimosaMacroStatement LIST
+syn keyword mimosaMacroStatement OFF
+syn keyword mimosaMacroStatement ON
+syn keyword mimosaMacroStatement RANGE
+syn keyword mimosaMacroStatement RESULT
+syn keyword mimosaMacroStatement SPAWN
+syn keyword mimosaMacroStatement STATUS
+syn keyword mimosaMacroStatement WAIT
 "
-syn region mimosa_macroComment start="'" end="$"
+syn region mimosaMacroComment start="'" end="$"
 
-syn match mimosa_macroOperator "[@]"
+syn match mimosaMacroOperator "[@]"
 
-highlight link mimosa_macroStatement Statement
-highlight link mimosa_macroComment Comment
-highlight link mimosa_macroOperator Operator
+highlight link mimosaMacroStatement Statement
+highlight link mimosaMacroComment Comment
+highlight link mimosaMacroOperator Operator
 
-let b:current_syntax = "mimosa_macro"
+let b:current_syntax = "mimosaMacro"
