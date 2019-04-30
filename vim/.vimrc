@@ -161,6 +161,9 @@ if has("mac") || has("macunix") || has("unix")
   nmap <leader>y :!cal -y<CR>
 endif
 
+" Alternative to <esc> in insert mode
+imap jk <esc>
+
 """ Colorscheme, Fonts & Cursorline {{{1
 
 " Font
