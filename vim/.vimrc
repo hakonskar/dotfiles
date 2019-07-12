@@ -162,7 +162,7 @@ if has("mac") || has("macunix") || has("unix")
 endif
 
 " Alternative to <esc> in insert mode
-imap jk <esc>
+imap jk <esc>l
 
 """ Colorscheme, Fonts & Cursorline {{{1
 
