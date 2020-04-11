@@ -168,22 +168,34 @@ imap jk <esc>l
 
 " Font
 if has("win32")
-  set gfn=Hack:h11,Consolas:h10:cANSI
+  set gfn=Hack:h11,Consolas:h11:cANSI
 elseif has("mac") || has("macunix") || has("unix")
   set gfn=Monospace\ 12
 endif
 
 
-" Colorscheme
+" Colorscheme, time-of-day dependant
 if has("gui_running")
-  if system('date +%H') >= 20 || system('date +%H') <= 7
-    set background=dark
-    colorscheme solarized8_high
-    "colorscheme peaksea
-    set cursorline
-    hi cursorline gui=NONE guibg=#073642
-  else
-    colorscheme desert
+  if has("mac") || has("macunix") || has("unix")
+    if system('date +%H') >= 20 || system('date +%H') <= 7
+      set background=dark
+      colorscheme solarized8_high
+      "colorscheme peaksea
+      set cursorline
+      hi cursorline gui=NONE guibg=#073642
+    else
+      colorscheme desert
+    endif
+  elseif has("win32")
+    if system('echo %time:~0,2%') >=20 || system('echo %time:~0,2%') <= 7
+      set background=dark
+      colorscheme solarized8_high
+      "colorscheme peaksea
+      set cursorline
+      hi cursorline gui=NONE guibg=#073642
+    else
+      colorscheme desert
+    endif
   endif
 endif
 
