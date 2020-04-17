@@ -194,7 +194,7 @@ if has("gui_running")
       set cursorline
       hi cursorline gui=NONE guibg=#073642
     else
-      colorscheme desert
+      colorscheme peaksea
     endif
   endif
 endif
