@@ -164,6 +164,9 @@ endif
 " Alternative to <esc> in insert mode
 imap jk <esc>l
 
+" Toggle netrw
+nmap <leader>t :Lexplore<CR>
+
 """ Netrw {{{1
 
 " NERDTree'ish settings for netrw
@@ -171,7 +174,7 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
-let g:netrw_winsize = 25
+let g:netrw_winsize = 15
 " augroup ProjectDrawer
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
