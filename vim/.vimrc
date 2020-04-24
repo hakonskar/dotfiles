@@ -164,6 +164,9 @@ endif
 " Alternative to <esc> in insert mode
 imap jk <esc>l
 
+" Toggle NERDTree
+nmap <leader>t :NERDTreeToggle<CR>
+
 """ Colorscheme, Fonts & Cursorline {{{1
 
 " Font
@@ -289,15 +292,3 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
-
-""" Options for plugins {{{1
-" Vim-plug
-"if has("win32")
-"    silent! call plug#begin('~\vimfiles\plugged')
-"elseif has("mac") || has("macunix") || has("unix")
-"    call plug#begin('~/.vim/plugged')
-"endif
-"
-"Plug 'vim-airline/vim-airline'
-"
-"call plug#end()
