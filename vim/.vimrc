@@ -215,6 +215,8 @@ if has("gui_running")
   endif
 endif
 
+" Uncomment for the gruvbox colorscheme
+" autocmd vimenter * colorscheme gruvbox
 
 " Cursorline
 "if has("gui_running")
