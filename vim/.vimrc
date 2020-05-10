@@ -79,7 +79,7 @@ iab ldate <c-r>=strftime("%d %B %Y - %H:%M:%S")<cr>
 iab sdate <c-r>=strftime("%d %B %Y")<cr>
 
 
-""" Mappings {{{1
+""" General Key Mapping {{{1
 let mapleader = ","
 let g:mapleader = ","
 
@@ -90,9 +90,6 @@ au FilterWritePre * if &diff | exe 'set diffopt=filler,context:99999' | exe 'nor
 " Put and get diffs
 nmap <leader>dp :diffput<CR>
 nmap <leader>dg :diffget<CR>
-
-" See the difference between the current buffer and the file it was loaded from
-nmap <leader>do :DiffOrig<CR>
 
 " Tail-like functionality
 nmap <leader>e :e<CR>G
@@ -164,12 +161,6 @@ endif
 " Alternative to <esc> in insert mode
 imap jk <esc>l
 
-" Toggle netrw
-nmap <leader>t :Lexplore<CR>
-
-" NERDCommenter
-nmap <C-Space> <plug>NERDCommenterToggle
-
 
 """ Netrw {{{1
 
@@ -179,10 +170,10 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 15
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
+
+" Toggle netrw
+nmap <leader>t :Lexplore<CR>
+
 
 """ Colorscheme, Fonts & Cursorline {{{1
 
@@ -302,12 +293,10 @@ function! NumberToggle()
   endif
 endfunc
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-" Revert with: ":delcommand DiffOrig".
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-        \ | wincmd p | diffthis
-endif
+
+""" Plugins - Settings and Key Mapping {{{1
+
+" NERDCommenter
+nmap <C-Space> <plug>NERDCommenterToggle
+let NERDSpaceDelims=1
 
