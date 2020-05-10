@@ -167,6 +167,10 @@ imap jk <esc>l
 " Toggle netrw
 nmap <leader>t :Lexplore<CR>
 
+" NERDCommenter
+nmap <C-Space> <plug>NERDCommenterToggle
+
+
 """ Netrw {{{1
 
 " NERDTree'ish settings for netrw
