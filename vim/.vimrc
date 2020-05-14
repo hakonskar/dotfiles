@@ -4,21 +4,20 @@
 " Maintainer:      Håkon Skår - haakon.skaar@gmail.com
 
 """ General vim options {{{1
-set nocompatible                "Vim, not Vi.
-syntax on                       "let Vim overrule color settings
+
+" Load some sensible defaults
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
 
 filetype plugin on              "Run plugins
-filetype indent on              "Apply indentation
 
 set autoread                    "Automatically update files that have been changed outside of Vim
-set hid                         "Abandoned buffers become hidden (not unloaded)
 set history=400                 "How much history Vim will remember
-set undolevels=200              "Undolevels to remember
 set shiftwidth=2                "Number of spaces used for each step of (auto)indent
 set smartindent                 "Do smart autoindenting when starting a new line
 set autoindent                  "Copy indent from current line when starting a new line
 set expandtab                   "In Insert mode: Use the appropriate number of spaces to insert a <Tab>
-set smarttab                    "<Tab> in front of a line inserts blanks according to 'shiftwidth'
+set tabstop=4                   "The number of columns a tab counts for
 set showmatch                   "Show matching brackets
 set linebreak                   "Wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
 set nowrap                      "Don't wrap long lines
@@ -29,22 +28,16 @@ set hlsearch                    "Highlight search
 set lazyredraw                  "The screen will not be redrawn while executing macros
 set so=7                        "Minimal number of screen lines to keep above and below the cursor
 set cmdheight=2                 "Number of screen lines to use for the command-line.
-set tabstop=4                   "The number of columns a tab counts for
-set showcmd                     "Show (partial) command in the last line of the screen.
 set number                      "Show linenumbers
-set wildmenu                    "Enhanced command-line completion
-set ruler                       "Show the line and column number of the cursor position
 set splitbelow                  "New windows from horizontal split comes below
 set splitright                  "New windows from vertical split opens to the right
 set diffopt=vertical            "Split vertical when diffing
 set foldmethod=marker           "Markers are used to specify folds.
-" set foldcolumn=2                "Column indicating folds shown at side of window
 set visualbell t_vb=            "No visualbell
 set noswapfile                  "No backup
 set nowritebackup               "No backup
 set nobackup                    "No backup
-set virtualedit=all             "Allow virtual editing in all modes.
-set backspace=indent,eol,start  "Make backspace work properly
+set virtualedit=block           "Allow virtual editing in all modes.
 set laststatus=2                "Status line also when only one window
 set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<
 
@@ -53,11 +46,32 @@ set wildignore=*.o,*.obj,*.exe,*.doc,*.xls,*.MOD,*.SIN,*.CGM,*.JBK,*.pdf,*.raf
 set wildignore+=*.lnk,*.bmp,*.mcd,*.xmcd,*.jpg,*.jpeg,*.gni,*.avi,*.mpg,*.mpeg
 set wildignore+=*.gif,*.png,*.xpm,*.cdr,*.eps
 
-" Jump to the last used lineposition when opening files
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
 " Make split windows equal size
 au VimResized * wincmd =
+
+
+""" Plugin Manager {{{1
+
+if has("win32")
+  call plug#begin('~/vimfiles/plugged')
+else
+  call plug#begin('~/.vim/plugged')
+endif
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdcommenter'
+Plug 'morhetz/gruvbox'
+
+call plug#end()
+
+
+""" Plugins - Settings and Key Mapping {{{1
+
+" NERDCommenter
+let NERDSpaceDelims=1
+" let NERDCreateDefaultMappings=0
+nmap <C-Space> <plug>NERDCommenterToggle
+nmap <leader>cs <plug>NERDCommenterSexy
 
 
 """ Statusline {{{1
@@ -90,9 +104,6 @@ au FilterWritePre * if &diff | exe 'set diffopt=filler,context:99999' | exe 'nor
 " Put and get diffs
 nmap <leader>dp :diffput<CR>
 nmap <leader>dg :diffget<CR>
-
-" Tail-like functionality
-nmap <leader>e :e<CR>G
 
 " Count matches with <leader>/, remove highlights with <space>
 map <leader>/ :%s///gn<CR>
@@ -136,14 +147,6 @@ cnoremap <C-F> <Right>
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 
-" Next buffer and previous buffer
-nmap <C-N> :bn<CR>
-nmap <C-P> :bp<CR>
-
-" Next and previous item in Quickfix List
-noremap <leader>n :cn<CR>
-noremap <leader>p :cp<CR>
-
 " List buffers (ls)
 nmap <C-L> :ls<CR>
 
@@ -152,11 +155,6 @@ au BufReadPost * map K :exe ":help ".expand("<cword>")<CR>
 
 " Toggle highlight cursorline
 nnoremap H :set cursorline!<CR>
-
-" Show terminal calendar
-if has("mac") || has("macunix") || has("unix")
-  nmap <leader>y :!cal -y<CR>
-endif
 
 " Alternative to <esc> in insert mode
 imap jk <esc>l
@@ -189,35 +187,27 @@ endif
 if has("gui_running")
   if has("mac") || has("macunix") || has("unix")
     if system('date +%H') >= 20 || system('date +%H') <= 7
+      autocmd vimenter * colorscheme gruvbox
       set background=dark
-      colorscheme solarized8_high
-      "colorscheme peaksea
-      set cursorline
-      hi cursorline gui=NONE guibg=#073642
+      "colorscheme solarized8_high
     else
       colorscheme desert
     endif
   elseif has("win32")
     if system('echo %time:~0,2%') >=20 || system('echo %time:~0,2%') <= 7
+      autocmd vimenter * colorscheme gruvbox
       set background=dark
-      colorscheme solarized8_high
-      "colorscheme peaksea
-      set cursorline
-      hi cursorline gui=NONE guibg=#073642
     else
       colorscheme peaksea
     endif
   endif
 endif
 
-" Uncomment for the gruvbox colorscheme
-" autocmd vimenter * colorscheme gruvbox
-
 " Cursorline
-"if has("gui_running")
-"  set cursorline
-"  hi cursorline gui=NONE guibg=#333333
-"endif
+if has("gui_running")
+  set cursorline
+  hi cursorline gui=NONE guibg=#333333
+endif
 
 
 """ Window-size and GUI options {{{1
@@ -244,17 +234,6 @@ if has("gui_running")
   endif
 
 endif
-
-" Maximize window when starting vim in diffmode
-"if &diff
-"    set nocul
-"    if has("win_32")
-"        au GUIEnter * simalt ~x
-"    elseif has("gui_macvim")
-"        " set fuoptions=maxvert,maxhorz
-"        au GUIEnter * set fullscreen
-"    endif
-"endif
 
 
 """ Helper functions {{{1
@@ -292,11 +271,4 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-
-
-""" Plugins - Settings and Key Mapping {{{1
-
-" NERDCommenter
-nmap <C-Space> <plug>NERDCommenterToggle
-let NERDSpaceDelims=1
 
