@@ -58,6 +58,8 @@ endif
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -66,7 +68,7 @@ call plug#end()
 
 " NERDCommenter
 let NERDSpaceDelims=1
-" let NERDCreateDefaultMappings=0
+"let NERDCreateDefaultMappings=0
 nmap <C-Space> <plug>NERDCommenterToggle
 nmap <leader>cs <plug>NERDCommenterSexy
 
@@ -110,8 +112,6 @@ nnoremap <leader>rl :call NumberToggle()<CR>
 
 " Save and copy with <C-S> and <C-C>
 noremap <C-S> :update<CR>
-vnoremap <C-S> <C-C>:update<CR>
-inoremap <C-S> <C-O>:update<CR>
 noremap <C-C> "*y
 
 " cd to directory of current file
@@ -161,9 +161,9 @@ nmap <leader>t :Lexplore<CR>
 " Function to separate between day- and night-time
 function! IsLate()
   if has("win32")
-    return (system('echo %time:~0,2%') >=20 || system('echo %time:~0,2%') <= 7)
+    return (system('echo %time:~0,2%') >=21 || system('echo %time:~0,2%') <= 7)
   else
-    return (system('date +%H') >= 20 || system('date +%H') <= 7)
+    return (system('date +%H') >= 21 || system('date +%H') <= 7)
   endif
 endfunction
 
@@ -200,9 +200,6 @@ if has("gui_win32")
   set columns=200
   set visualbell t_vb=
   au GuiEnter * set visualbell t_vb=
-elseif has("gui_macvim")
-  set lines=65
-  set columns=130
 else
   set lines=50
   set columns=125
