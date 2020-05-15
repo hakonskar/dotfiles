@@ -9,8 +9,6 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
-filetype plugin on              "Run plugins
-
 set autoread                    "Automatically update files that have been changed outside of Vim
 set history=400                 "How much history Vim will remember
 set shiftwidth=2                "Number of spaces used for each step of (auto)indent
@@ -48,7 +46,6 @@ set wildignore+=*.gif,*.png,*.xpm,*.cdr,*.eps
 
 " Make split windows equal size
 au VimResized * wincmd =
-
 
 """ Plugin Manager {{{1
 
@@ -97,14 +94,6 @@ iab sdate <c-r>=strftime("%d %B %Y")<cr>
 let mapleader = ","
 let g:mapleader = ","
 
-" Catch the transition to diff and map the jump-to-diff commands to space and S-space
-au FilterWritePre * if &diff | exe 'noremap <space> ]cz.' | exe 'noremap <S-space> [cz.' | endif
-au FilterWritePre * if &diff | exe 'set diffopt=filler,context:99999' | exe 'normal \<c-w>\<c-w>' | endif
-
-" Put and get diffs
-nmap <leader>dp :diffput<CR>
-nmap <leader>dg :diffget<CR>
-
 " Count matches with <leader>/, remove highlights with <space>
 map <leader>/ :%s///gn<CR>
 nnoremap <silent> <space> :noh<CR>
@@ -136,9 +125,6 @@ map k gk
 nmap <leader>s :source $MYVIMRC
 nmap <leader>v :e $MYVIMRC
 
-" Delete until slash on commandline
-cno <leader>q <C-\>eDeleteTillSlash()<cr>
-
 " Bash-style command-line
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
@@ -146,9 +132,6 @@ cnoremap <C-B> <Left>
 cnoremap <C-F> <Right>
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
-
-" List buffers (ls)
-nmap <C-L> :ls<CR>
 
 " Change behaviour of <S-K> to open Vim helpfile for word under cursor
 au BufReadPost * map K :exe ":help ".expand("<cword>")<CR>
@@ -175,38 +158,29 @@ nmap <leader>t :Lexplore<CR>
 
 """ Colorscheme, Fonts & Cursorline {{{1
 
+" Function to separate between day- and night-time
+function! IsLate()
+  if has("win32")
+    return (system('echo %time:~0,2%') >=20 || system('echo %time:~0,2%') <= 7)
+  else
+    return (system('date +%H') >= 20 || system('date +%H') <= 7)
+  endif
+endfunction
+
+" Colorscheme, time-of-day dependent
+if IsLate()
+  colorscheme solarized8_high
+else
+  "autocmd vimenter * colorscheme gruvbox
+  colorscheme gruvbox
+  set background=dark
+endif
+
 " Font
 if has("win32")
   set gfn=Hack:h11,Consolas:h11:cANSI
-elseif has("mac") || has("macunix") || has("unix")
+else
   set gfn=Monospace\ 12
-endif
-
-
-" Colorscheme, time-of-day dependant
-if has("gui_running")
-  if has("mac") || has("macunix") || has("unix")
-    if system('date +%H') >= 20 || system('date +%H') <= 7
-      autocmd vimenter * colorscheme gruvbox
-      set background=dark
-      "colorscheme solarized8_high
-    else
-      colorscheme desert
-    endif
-  elseif has("win32")
-    if system('echo %time:~0,2%') >=20 || system('echo %time:~0,2%') <= 7
-      autocmd vimenter * colorscheme gruvbox
-      set background=dark
-    else
-      colorscheme peaksea
-    endif
-  endif
-endif
-
-" Cursorline
-if has("gui_running")
-  set cursorline
-  hi cursorline gui=NONE guibg=#333333
 endif
 
 
@@ -219,46 +193,25 @@ if has("gui_running")
     set stal=1
   catch
   endtry
+endif
 
-  if has("gui_win32")
-    set lines=65
-    set columns=140
-    set visualbell t_vb=
-    au GuiEnter * set visualbell t_vb=
-  elseif has("gui_macvim")
-    set lines=65
-    set columns=130
-  else
-    set lines=50
-    set columns=125
-  endif
-
+if has("gui_win32")
+  set lines=65
+  set columns=200
+  set visualbell t_vb=
+  au GuiEnter * set visualbell t_vb=
+elseif has("gui_macvim")
+  set lines=65
+  set columns=130
+else
+  set lines=50
+  set columns=125
 endif
 
 
 """ Helper functions {{{1
-" For the <leader>q mapping
-func! DeleteTillSlash()
-  let g:cmd = getcmdline()
 
-  if has("win16") || has("win32")
-    let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
-  else
-    let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
-  endif
-
-  if g:cmd == g:cmd_edited
-    if has("win16") || has("win32")
-      let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
-    else
-      let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-    endif
-  endif
-
-  return g:cmd_edited
-endfunc
-
-" Return syntax group
+" Return syntax group (used for statusline)
 function! SyntaxItem()
   return synIDattr(synID(line("."),col("."),1),"name")
 endfunction
