@@ -170,6 +170,7 @@ endfunction
 " Colorscheme, time-of-day dependent
 if IsLate()
   colorscheme solarized8_high
+  set background=dark
 else
   "autocmd vimenter * colorscheme gruvbox
   colorscheme gruvbox
