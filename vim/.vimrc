@@ -60,6 +60,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'sheerun/vim-polyglot'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -71,6 +72,10 @@ let NERDSpaceDelims=1
 "let NERDCreateDefaultMappings=0
 nmap <C-Space> <plug>NERDCommenterToggle
 nmap <leader>cs <plug>NERDCommenterSexy
+
+" CtrlP
+let g:ctrlp_use_caching = 0
+let g:ctrlp_working_path_mode = ''
 
 
 """ Statusline {{{1
