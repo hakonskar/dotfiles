@@ -119,6 +119,9 @@ nnoremap <leader>rl :call NumberToggle()<CR>
 noremap <C-S> :update<CR>
 noremap <C-C> "*y
 
+" Use Ctrl-n to edit alternate file
+nnoremap <C-N> <C-6>
+
 " cd to directory of current file
 map <leader>cd :cd %:h<cr>
 
