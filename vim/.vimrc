@@ -202,16 +202,17 @@ if has("gui_running")
     set stal=1
   catch
   endtry
-endif
 
-if has("gui_win32")
-  set lines=65
-  set columns=200
-  set visualbell t_vb=
-  au GuiEnter * set visualbell t_vb=
-else
-  set lines=50
-  set columns=125
+  if has("gui_win32")
+    set lines=65
+    set columns=200
+    set visualbell t_vb=
+    au GuiEnter * set visualbell t_vb=
+  else
+    set lines=50
+    set columns=125
+  endif
+
 endif
 
 
