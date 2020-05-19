@@ -23,6 +23,7 @@ set ignorecase                  "Case-insensitive search
 set smartcase                   "Upper-case if search pattern contains uppercase
 set incsearch                   "Incremental search
 set hlsearch                    "Highlight search
+set wildignorecase              "Ignore case for file completion
 set lazyredraw                  "The screen will not be redrawn while executing macros
 set so=7                        "Minimal number of screen lines to keep above and below the cursor
 set cmdheight=2                 "Number of screen lines to use for the command-line.
