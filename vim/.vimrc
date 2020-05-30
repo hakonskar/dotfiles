@@ -21,7 +21,6 @@ set linebreak                   "Wrap long lines at a character in 'breakat' rat
 set nowrap                      "Don't wrap long lines
 set ignorecase                  "Case-insensitive search
 set smartcase                   "Upper-case if search pattern contains uppercase
-set incsearch                   "Incremental search
 set hlsearch                    "Highlight search
 set wildignorecase              "Ignore case for file completion
 set lazyredraw                  "The screen will not be redrawn while executing macros
@@ -151,6 +150,9 @@ nnoremap H :set cursorline!<CR>
 " Alternative to <esc> in insert mode
 imap jk <esc>l
 
+" Move lines up/down
+nmap <C-J> ddp
+nmap <C-K> ddkP
 
 """ Netrw {{{1
 
@@ -190,7 +192,8 @@ endif
 if has("win32")
   set gfn=Hack:h11,Consolas:h11:cANSI
 else
-  set gfn=Monospace\ 12
+  " set gfn=Monospace\ 12
+  set gfn=Inconsolata\ 15
 endif
 
 
@@ -210,14 +213,14 @@ if has("gui_running")
     set visualbell t_vb=
     au GuiEnter * set visualbell t_vb=
   else
-    set lines=50
+    set lines=48
     set columns=125
   endif
 
 endif
 
 
-""" Helper functions {{{1
+""" Misc functions {{{1
 
 " Return syntax group (used for statusline)
 function! SyntaxItem()
