@@ -22,6 +22,7 @@ set nowrap                      "Don't wrap long lines
 set ignorecase                  "Case-insensitive search
 set smartcase                   "Upper-case if search pattern contains uppercase
 set hlsearch                    "Highlight search
+set shortmess-=S                "Do not show search count message when searching
 set wildignorecase              "Ignore case for file completion
 set lazyredraw                  "The screen will not be redrawn while executing macros
 set so=7                        "Minimal number of screen lines to keep above and below the cursor
@@ -209,7 +210,7 @@ if has("gui_running")
 
   if has("gui_win32")
     set lines=65
-    set columns=180
+    set columns=155
     set visualbell t_vb=
     au GuiEnter * set visualbell t_vb=
   else
