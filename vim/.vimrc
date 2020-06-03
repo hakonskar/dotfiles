@@ -75,7 +75,7 @@ call plug#end()
 " NERDCommenter
 let NERDSpaceDelims=1
 "let NERDCreateDefaultMappings=0
-nmap <C-,> <plug>NERDCommenterToggle
+nmap <C-space> <plug>NERDCommenterToggle
 nmap <leader>cs <plug>NERDCommenterSexy
 
 " CtrlP
