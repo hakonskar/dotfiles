@@ -5,6 +5,10 @@
 
 """ General vim options {{{1
 
+let mapleader = " "
+let g:mapleader = " "
+set encoding=utf-8
+
 " Load some sensible defaults
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
@@ -71,7 +75,7 @@ call plug#end()
 " NERDCommenter
 let NERDSpaceDelims=1
 "let NERDCreateDefaultMappings=0
-nmap <C-Space> <plug>NERDCommenterToggle
+nmap <C-,> <plug>NERDCommenterToggle
 nmap <leader>cs <plug>NERDCommenterSexy
 
 " CtrlP
@@ -99,12 +103,10 @@ iab sdate <c-r>=strftime("%d %B %Y")<cr>
 
 
 """ General Key Mapping {{{1
-let mapleader = ","
-let g:mapleader = ","
 
-" Count matches with <leader>/, remove highlights with <space>
+" Count matches with
 map <leader>/ :%s///gn<CR>
-nnoremap <silent> <space> :noh<CR>
+nnoremap <silent> , :noh<CR>
 
 " Remove trailing spaces
 nmap <leader>rt :%s/ \+$//g<CR>:noh<CR>``
