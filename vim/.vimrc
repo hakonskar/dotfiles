@@ -19,7 +19,7 @@ set shiftwidth=2                "Number of spaces used for each step of (auto)in
 set smartindent                 "Do smart autoindenting when starting a new line
 set autoindent                  "Copy indent from current line when starting a new line
 set expandtab                   "In Insert mode: Use the appropriate number of spaces to insert a <Tab>
-set tabstop=4                   "The number of columns a tab counts for
+set tabstop=4 softtabstop=4     "The number of spaces a tab counts for
 set showmatch                   "Show matching brackets
 set linebreak                   "Wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
 set nowrap                      "Don't wrap long lines
@@ -107,9 +107,6 @@ iab sdate <c-r>=strftime("%d %B %Y")<cr>
 " Count matches with
 map <leader>/ :%s///gn<CR>
 nnoremap <silent> , :noh<CR>
-
-" Remove trailing spaces
-nmap <leader>rt :%s/ \+$//g<CR>:noh<CR>``
 
 " Toggle linewraps and listview
 nnoremap <leader>w :set nowrap!<CR>
@@ -239,3 +236,11 @@ function! NumberToggle()
   endif
 endfunc
 
+" Trim whitespace
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd BufWritePre * :call TrimWhitespace()
