@@ -32,6 +32,7 @@ set lazyredraw                  "The screen will not be redrawn while executing 
 set so=7                        "Minimal number of screen lines to keep above and below the cursor
 set cmdheight=2                 "Number of screen lines to use for the command-line.
 set number                      "Show linenumbers
+set relativenumber              "line number relative to the line with the cursor
 set splitbelow                  "New windows from horizontal split comes below
 set splitright                  "New windows from vertical split opens to the right
 set diffopt=vertical            "Split vertical when diffing
@@ -183,7 +184,6 @@ if IsLate()
   colorscheme solarized8_high
   set background=dark
 else
-  "autocmd vimenter * colorscheme gruvbox
   colorscheme gruvbox
   set background=dark
 endif
