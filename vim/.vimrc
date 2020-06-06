@@ -40,7 +40,7 @@ set visualbell t_vb=            "No visualbell
 set noswapfile                  "No backup
 set nowritebackup               "No backup
 set nobackup                    "No backup
-set virtualedit=block           "Allow virtual editing in all modes.
+set virtualedit=block           "Allow virtual editing in Visual block mode
 set laststatus=2                "Status line also when only one window
 set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<
 
@@ -66,6 +66,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -81,19 +82,6 @@ nmap <leader>cs <plug>NERDCommenterSexy
 " CtrlP
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = ''
-
-
-""" Statusline {{{1
-set statusline=
-set statusline+=%<\                   " cut at start
-set statusline+=%2*[%n%H%M%R%W]%*\    " flags and buf no
-set statusline+=%-40f\                " path
-set statusline+=%=                    " right align
-set statusline+=%{SyntaxItem()}\      " syntax highlight group
-set statusline+=%1*%y%*%*\            " file format
-set statusline+=%{&ff}\               " filetype
-set statusline+=%10((%l,%c)%)\        " line and column
-set statusline+=%P                    " percentage of file
 
 
 """ Abbreviations. {{{1
@@ -220,11 +208,6 @@ endif
 
 
 """ Misc functions {{{1
-
-" Return syntax group (used for statusline)
-function! SyntaxItem()
-  return synIDattr(synID(line("."),col("."),1),"name")
-endfunction
 
 " Toggle relative line number mode
 function! NumberToggle()
