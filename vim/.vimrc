@@ -1,7 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File:            .vimrc
 "                  Main configuration file for (g)Vim / MacVim
-" Maintainer:      Håkon Skår - haakon.skaar@gmail.com
 
 """ General vim options {{{1
 
