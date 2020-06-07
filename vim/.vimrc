@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" File:            .vimrc
-"                  Main configuration file for (g)Vim / MacVim
+" File:   .vimrc
+"         Main configuration file for (g)Vim / MacVim
 
 """ General vim options {{{1
 
@@ -67,9 +67,9 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'mbbill/undotree'
 
 call plug#end()
-
 
 """ Plugins - Settings and Key Mapping {{{1
 
@@ -83,12 +83,13 @@ nmap <leader>cs <plug>NERDCommenterSexy
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = ''
 
+" Undotree
+nnoremap <F5> :UndotreeToggle<cr>
 
 """ Abbreviations. {{{1
 " Short date and long date
 iab ldate <c-r>=strftime("%d %B %Y - %H:%M:%S")<cr>
 iab sdate <c-r>=strftime("%d %B %Y")<cr>
-
 
 """ General Key Mapping {{{1
 
@@ -154,7 +155,6 @@ let g:netrw_winsize = 15
 " Toggle netrw
 nmap <leader>t :Lexplore<CR>
 
-
 """ Colorscheme, Fonts & Cursorline {{{1
 
 " Function to separate between day- and night-time
@@ -183,7 +183,6 @@ else
   set gfn=Inconsolata\ 15
 endif
 
-
 """ Window-size and GUI options {{{1
 if has("gui_running")
   set guioptions-=T
@@ -206,7 +205,6 @@ if has("gui_running")
 
 endif
 
-
 """ Misc functions {{{1
 
 " Toggle relative line number mode
@@ -226,3 +224,4 @@ fun! TrimWhitespace()
 endfun
 
 autocmd BufWritePre * :call TrimWhitespace()
+
