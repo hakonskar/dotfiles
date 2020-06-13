@@ -93,7 +93,7 @@ iab sdate <c-r>=strftime("%d %B %Y")<cr>
 
 """ General Key Mapping {{{1
 
-" Count matches with
+" Count matches
 map <leader>/ :%s///gn<CR>
 nnoremap <silent> , :noh<CR>
 
@@ -157,7 +157,7 @@ nmap <leader>t :Lexplore<CR>
 
 """ Colorscheme, Fonts & Cursorline {{{1
 
-" Function to separate between day- and night-time
+" Is it late?
 function! IsLate()
   if has("win32")
     return (system('echo %time:~0,2%') >=21 || system('echo %time:~0,2%') <= 7)
