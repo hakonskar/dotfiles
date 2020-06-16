@@ -93,9 +93,11 @@ iab sdate <c-r>=strftime("%d %B %Y")<cr>
 
 """ General Key Mapping {{{1
 
-" Count matches
+" Count search matches
 map <leader>/ :%s///gn<CR>
-nnoremap <silent> , :noh<CR>
+
+" Remove search highlight
+nnoremap <silent> - :noh<CR>
 
 " Toggle linewraps and listview
 nnoremap <leader>w :set nowrap!<CR>
