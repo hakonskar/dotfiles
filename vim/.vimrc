@@ -90,7 +90,7 @@ nnoremap <F5> :UndotreeToggle<cr>
 iab ldate <c-r>=strftime("%d %B %Y - %H:%M:%S")<cr>
 iab sdate <c-r>=strftime("%d %B %Y")<cr>
 
-""" General Key Mapping {{{1
+""" Key Mapping {{{1
 
 " Count search matches
 map <leader>/ :%s///gn<CR>
@@ -143,6 +143,10 @@ imap jk <esc>l
 " Move lines up/down
 nmap <C-J> ddp
 nmap <C-K> ddkP
+
+" Clear buffer list
+command! BufOnly execute "%bd | e# | echo 'Bufs Deleted'"
+nnoremap <silent> <leader>bd :BufOnly<CR>
 
 """ Netrw {{{1
 
@@ -225,4 +229,3 @@ fun! TrimWhitespace()
 endfun
 
 autocmd BufWritePre * :call TrimWhitespace()
-
