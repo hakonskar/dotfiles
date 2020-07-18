@@ -148,6 +148,10 @@ nmap <C-K> ddkP
 command! BufOnly execute "%bd | e# | echo 'Bufs Deleted'"
 nnoremap <silent> <leader>bd :BufOnly<CR>
 
+" Next and previous in quickfix window
+nmap <leader>n :cnext<CR>
+nmap <leader>p :cprevious<CR>
+
 """ Netrw {{{1
 
 " NERDTree'ish settings for netrw
