@@ -67,6 +67,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'mbbill/undotree'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -107,7 +108,7 @@ nnoremap <leader>rl :call NumberToggle()<CR>
 
 " Save and copy with <C-S> and <C-C>
 noremap <C-S> :update<CR>
-noremap <C-C> "*y
+"noremap <C-C> "*y
 
 " Use Ctrl-n to edit alternate file
 nnoremap <C-N> <C-6>
