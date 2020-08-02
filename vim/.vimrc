@@ -51,7 +51,7 @@ set wildignore+=*.gif,*.png,*.xpm,*.cdr,*.eps
 " Make split windows equal size
 au VimResized * wincmd =
 
-""" Plugin Manager {{{1
+""" Plugin Manager, plugin settings and key mapping {{{1
 
 if has("win32")
   call plug#begin('~/vimfiles/plugged')
@@ -69,8 +69,6 @@ Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
-
-""" Plugins - Settings and Key Mapping {{{1
 
 " NERDCommenter
 let NERDSpaceDelims=1
