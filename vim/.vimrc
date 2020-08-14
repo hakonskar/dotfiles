@@ -44,9 +44,9 @@ set laststatus=2                "Status line also when only one window
 set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<
 
 " Ignore these
-set wildignore=*.o,*.obj,*.exe,*.doc,*.xls,*.MOD,*.SIN,*.CGM,*.JBK,*.pdf,*.raf
-set wildignore+=*.lnk,*.bmp,*.mcd,*.xmcd,*.jpg,*.jpeg,*.gni,*.avi,*.mpg,*.mpeg
-set wildignore+=*.gif,*.png,*.xpm,*.cdr,*.eps
+set wildignore=*.avi,*.bmp,*.cdr,*.CGM,*.doc,*.eps,*.exe,*.gif,*.gni,*.JBK
+set wildignore+=*.jpeg,*.jpg,*.lnk,*.mcd,*.MOD,*.mpeg,*.mpg,*.o,*.obj,*.pdf
+set wildignore+=*.png,*.raf,*.SIN,*.xls,*.xlsm,*.xlsx,*.xmcd,*.xpm
 
 " Make split windows equal size
 au VimResized * wincmd =
