@@ -22,10 +22,6 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Prompt
-PS1="[\[\e[1;36m\]\u \W\[\e[0m\]] \[\e]2;\w\a\]"
-# PS1="[\[\e[31;32m\]\u \W\[\e[0m\]] "
-
 # Source the aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -45,5 +41,13 @@ export PATH
 LS_COLORS="$LS_COLORS:di=01;32";
 export LS_COLORS
 
-# System info when opening new terminal
-#neofetch
+# Git prompt
+git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# Prompt
+PS1="[\[\e[1;36m\]\u \W\[\e[0m\]]\[\033[00;32m\]\$(git_branch)\[\033[00m\] \[\e]2;\w\a\]"
+# PS1="[\[\e[1;36m\]\u \W\[\e[0m\]]\$(git_branch) \[\e]2;\w\a\]"
+# PS1="[\[\e[1;36m\]\u \W\[\e[0m\]] \[\e]2;\w\a\]"
+# PS1="[\[\e[31;32m\]\u \W\[\e[0m\]] "
