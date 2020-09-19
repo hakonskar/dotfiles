@@ -59,7 +59,6 @@ else
   call plug#begin('~/.vim/plugged')
 endif
 
-Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-solarized8'
@@ -206,7 +205,7 @@ if has("gui_running")
     set visualbell t_vb=
     au GuiEnter * set visualbell t_vb=
   else
-    set lines=48
+    set lines=47
     set columns=125
   endif
 

@@ -24,7 +24,7 @@ shopt -s checkwinsize
 
 # Source the aliases
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 # Use vim
@@ -43,7 +43,7 @@ export LS_COLORS
 
 # Git prompt
 git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # Prompt
