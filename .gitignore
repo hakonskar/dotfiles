@@ -2,3 +2,7 @@ plugged/
 .netrwhist
 pack/
 venv/
+xmonad.errors
+xmonad.hi
+xmonad.o
+xmonad-x86*
