@@ -1,0 +1,34 @@
+# Configuration for Alacritty
+
+# Window
+window:
+  dimensions:
+    columns: 120
+    lines: 40
+
+# Font configuration
+font:
+  normal:
+    family: monospace
+    style: Regular
+
+  bold:
+    family: monospace
+    style: Bold
+
+  italic:
+    family: monospace
+    style: Italic
+
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+
+  size: 15
+
+# Background opacity
+background_opacity: 0.9
+
+# Key bindings
+key_bindings:
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
