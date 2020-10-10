@@ -59,7 +59,6 @@ else
   call plug#begin('~/.vim/plugged')
 endif
 
-Plug 'preservim/nerdcommenter'
 Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -68,12 +67,6 @@ Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
-
-" NERDCommenter
-let NERDSpaceDelims=1
-"let NERDCreateDefaultMappings=0
-nmap <C-space> <plug>NERDCommenterToggle
-nmap <leader>cs <plug>NERDCommenterSexy
 
 " CtrlP
 let g:ctrlp_use_caching = 0
@@ -136,10 +129,6 @@ nnoremap H :set cursorline!<CR>
 
 " Alternative to <esc> in insert mode
 imap jk <esc>l
-
-" Move lines up/down
-nmap <C-J> ddp
-nmap <C-K> ddkP
 
 " Clear buffer list
 command! BufOnly execute "%bd | e# | echo 'Bufs Deleted'"
