@@ -71,6 +71,7 @@ call plug#end()
 " CtrlP
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_show_hidden = 1
 
 " Undotree
 nnoremap <F5> :UndotreeToggle<cr>
