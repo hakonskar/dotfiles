@@ -170,6 +170,10 @@ else
   set background=dark
 endif
 
+" Make vim work better in terminal
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
+
 " Font
 if has("win32")
   set gfn=Hack:h11,Consolas:h11:cANSI

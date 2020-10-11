@@ -38,8 +38,8 @@ PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
 
 # ls colors
-LS_COLORS="$LS_COLORS:di=01;32";
-export LS_COLORS
+#LS_COLORS="$LS_COLORS:di=01;32";
+#export LS_COLORS
 
 # Git prompt
 git_branch() {
