@@ -21,6 +21,10 @@ alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
 alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 
+# dnf
+alias dnfu='sudo dnf update'
+alias dnfi='sudo dnf install'
+
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
