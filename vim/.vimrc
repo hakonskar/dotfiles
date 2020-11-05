@@ -51,6 +51,9 @@ set wildignore+=*.png,*.raf,*.SIN,*.xls,*.xlsm,*.xlsx,*.xmcd,*.xpm
 " Make split windows equal size
 au VimResized * wincmd =
 
+" Packadd
+packadd! matchit
+
 """ Plugin Manager, plugin settings and key mapping {{{1
 
 if has("win32")
@@ -180,6 +183,7 @@ else
 endif
 
 """ Window-size and GUI options {{{1
+
 if has("gui_running")
   set guioptions-=T
   set guioptions-=m
