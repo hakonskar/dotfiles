@@ -51,4 +51,5 @@ export PATH
 # PS1="[\[\e[1;36m\]\u \W\[\e[0m\]] \[\e]2;\w\a\]"
 
 ## Starship prompt
+export STARSHIP_CONFIG=~/.starship.toml
 eval "$(starship init bash)"
