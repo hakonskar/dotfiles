@@ -128,9 +128,6 @@ cnoremap <C-P> <Up>
 " Change behaviour of <S-K> to open Vim helpfile for word under cursor
 au BufReadPost * map K :exe ":help ".expand("<cword>")<CR>
 
-" Toggle highlight cursorline
-nnoremap H :set cursorline!<CR>
-
 " Alternative to <esc> in insert mode
 imap jk <esc>l
 
