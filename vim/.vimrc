@@ -191,8 +191,8 @@ if has("gui_running")
   endtry
 
   if has("gui_win32")
-    set lines=65
-    set columns=155
+    set lines=60
+    set columns=125
     set visualbell t_vb=
     au GuiEnter * set visualbell t_vb=
   else
