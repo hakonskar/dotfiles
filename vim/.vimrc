@@ -173,7 +173,7 @@ endif
 
 " Font
 if has("win32")
-  set gfn=Hack:h11,Consolas:h11:cANSI
+  set gfn=Fira_Code:h11,Hack:h11,Consolas:h11
 else
   " set gfn=Monospace\ 12
   set gfn=Inconsolata\ 15
