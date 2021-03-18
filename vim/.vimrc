@@ -28,7 +28,7 @@ set hlsearch                    "Highlight search
 set shortmess-=S                "Show search count message when searching
 set wildignorecase              "Ignore case for file completion
 set lazyredraw                  "The screen will not be redrawn while executing macros
-set so=7                        "Minimal number of screen lines to keep above and below the cursor
+set scrolloff=7                        "Minimal number of screen lines to keep above and below the cursor
 set cmdheight=2                 "Number of screen lines to use for the command-line.
 set number                      "Show linenumbers
 set splitbelow                  "New windows from horizontal split comes below
