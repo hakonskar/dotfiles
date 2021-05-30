@@ -17,9 +17,9 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # pacman
-alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
-alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
+#alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
+#alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
+#alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 
 # dnf
 alias dnfu='sudo dnf upgrade --refresh'
